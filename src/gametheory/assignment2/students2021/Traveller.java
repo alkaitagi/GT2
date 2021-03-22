@@ -4,7 +4,7 @@ import gametheory.assignment2.Player;
 
 public class Traveller implements Player {
     int home, reserve1, reserve2, current;
-    int[] foods = new int[] { 0, 0, 0 };
+    int[] foods = new int[] { 0, 0, 0, 0 };
     int foodLimit;
 
     enum EnemyType {
@@ -18,9 +18,9 @@ public class Traveller implements Player {
         foodLimit = 5;
     }
 
-    public Traveller(int foodLimit) {
+    public Traveller(int optimalFood) {
         reset();
-        this.foodLimit = foodLimit;
+        this.foodLimit = optimalFood;
     }
 
     private int setHome(int newHome) {
@@ -67,7 +67,7 @@ public class Traveller implements Player {
         if (opponentLastMove == 0)
             return current = 2;
 
-        foods = new int[] { xA, xB, xC };
+        foods = new int[] { 0, xA, xB, xC };
 
         if (enemy == EnemyType.Same)
             if (opponentLastMove == home)
