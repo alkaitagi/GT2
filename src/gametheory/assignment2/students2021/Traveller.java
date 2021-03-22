@@ -88,17 +88,30 @@ public class Traveller implements Player {
         }
 
         if (enemy == EnemyType.Other) {
-            if (opponentLastMove != current && foods[current] > 0)
-                return current;
-            else {
-                setHome(current);
+            if (current == home)
                 if (foods[reserve1] > 0)
                     return current = reserve1;
                 else if (foods[reserve2] > 0)
                     return current = reserve2;
-                else
+                else {
+                    setHome(home);
                     return current = home;
-            }
+                }
+            // if (foods[home] > 0)
+            // return home;
+            // else if (foods[reserve1] > 0)
+            // return current = foods
+            // if (opponentLastMove != current && )
+            // return current;
+            // else {
+            // setHome(current);
+            // if (foods[reserve1] > 0)
+            // return current = reserve1;
+            // else if (foods[reserve2] > 0)
+            // return current = reserve2;
+            // else
+            // return current = home;
+            // }
         }
         return current = home;
     }
