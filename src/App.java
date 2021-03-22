@@ -5,7 +5,7 @@ import gametheory.assignment2.students2021.*;
 public class App {
     public static void main(String[] args) throws Exception {
         Player[] players = new Player[] { new Crazy(), new Crazy(), new Alpha(), new Beta(), new Alpha(), new Beta(),
-                new Alpha(), new Beta(), new Traveller() };
+                new Alpha(), new Beta(), new Traveller(), new Traveller(), new Traveller() };
 
         double[] scores = runTests(100, players);
         System.out.println(Arrays.toString(scores));
