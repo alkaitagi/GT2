@@ -4,14 +4,16 @@ import gametheory.assignment2.students2021.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Player[] players = new Player[] { new Alpha(), new Beta(), new Crazy(), new Traveller() };
+        Player[] players = new Player[] { new Alpha(), new Beta(), new Alpha(), new Beta(), new Traveller() };
 
-        double[] scores = runTests(10, players);
+        double[] scores = runTests(100, players);
         System.out.println(Arrays.toString(scores));
     }
 
     public static double[] runTests(int rounds, Player[] players) {
         double[] scores = new double[players.length];
+        for (int i = 0; i < players.length; i++)
+            scores[i] = 0;
 
         for (int i = 0; i < players.length; i++)
             for (int j = 0; j < players.length; j++)
@@ -37,8 +39,8 @@ public class App {
                         }
 
                         for (int f = 1; f < 4; f++)
-                            if (++fs[i] < 0)
-                                fs[i] = 0;
+                            if (++fs[f] < 0)
+                                fs[f] = 0;
                     }
                 }
         return scores;
