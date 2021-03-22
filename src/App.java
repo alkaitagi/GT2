@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Random;
+
 import gametheory.assignment2.Player;
 import gametheory.assignment2.students2021.*;
 
@@ -55,5 +57,77 @@ public class App {
 
     public static double sigmoid(int x) {
         return 10 * Math.exp(x) / (1 + Math.exp(x));
+    }
+
+}
+
+class Beta implements Player {
+    public Beta() {
+        reset();
+    }
+
+    @Override
+    public void reset() {
+        return;
+    }
+
+    @Override
+    public int move(int opponentLastMove, int xA, int xB, int xC) {
+        if (xB >= xA && xA >= xC)
+            return 1;
+        if (xA >= xB && xB >= xC)
+            return 2;
+        return 3;
+    }
+
+    @Override
+    public String getEmail() {
+        return "ma.magomedov@innopolis.ru";
+    }
+}
+
+class Alpha implements Player {
+    public Alpha() {
+        reset();
+    }
+
+    @Override
+    public void reset() {
+        return;
+    }
+
+    @Override
+    public int move(int opponentLastMove, int xA, int xB, int xC) {
+        if (xA >= xB && xA >= xC)
+            return 1;
+        if (xB >= xA && xB >= xC)
+            return 2;
+        return 3;
+    }
+
+    @Override
+    public String getEmail() {
+        return "ma.magomedov@innopolis.ru";
+    }
+}
+
+class Crazy implements Player {
+    public Crazy() {
+        reset();
+    }
+
+    @Override
+    public void reset() {
+        return;
+    }
+
+    @Override
+    public int move(int opponentLastMove, int xA, int xB, int xC) {
+        return new Random().nextInt(3) + 1;
+    }
+
+    @Override
+    public String getEmail() {
+        return "ma.magomedov@innopolis.ru";
     }
 }
